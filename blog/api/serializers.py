@@ -7,4 +7,3 @@ class PostSerializer(serializers.ModelSerializer):
         model = Post
         fields = '__all__'
         readonly = ['modified_at', 'created_at']
-        

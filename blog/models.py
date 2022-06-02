@@ -4,6 +4,7 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericRelation
 
+
 class Tag(models.Model):
     value = models.TextField(max_length=100)
 
@@ -28,7 +29,7 @@ class Post(models.Model):
     slug = models.SlugField(unique=True)
     summary = models.TextField(max_length=500)
     content = models.TextField()
-    tags = models.ManyToManyField(Tag, related_name="posts")
+    tags = models.ManyToManyField(Tag, related_name="posts", blank=True)
     comments = GenericRelation(Comment)
 
     def __str__(self):
